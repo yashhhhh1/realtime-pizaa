@@ -15,9 +15,9 @@ const Emitter = require('events')
 
 
 // Databse connnection
-const url = 'mongodb://127.0.0.1:27017/pizza';
+// const url = 'mongodb://127.0.0.1:27017/pizza';
 const connection = mongoose.connection
-mongoose.connect(url , { useNewUrlParser: true,  useUnifiedTopology: true, }).then(e =>{
+mongoose.connect(process.env.MONGO_CONNECTION_URL , { useNewUrlParser: true,  useUnifiedTopology: true, }).then(e =>{
     console.log("mongodb is conneced.....");
 }).catch(err => {
     console.log('Connection failed...',err)
